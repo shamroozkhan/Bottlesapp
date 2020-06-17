@@ -14,10 +14,6 @@ module.exports = {
 
 		for (let i = 0; i < priceList.length; i++) {
 
-			// console.log(priceList[i].n)
-			// console.log("prices", priceList[i].prices)
-			// console.log("pieces", priceList[i].pieces)
-
 			result = priceList[i].pieces.reduce(function (a, b) {
 				return a + b;
 			}, 0);
@@ -31,9 +27,8 @@ module.exports = {
 				remaining = priceList[i].prices[1] - temp2
 
 				bottle1 = temp2
-			} 
-			
-			else if (result > priceList[i].prices[0] || result <= priceList[i].prices[1]) {
+			}
+			if (result > priceList[i].prices[0] || result <= priceList[i].prices[1]) {
 
 				var temp = result % priceList[i].prices[1]
 
@@ -43,9 +38,8 @@ module.exports = {
 
 				pack1 = temp2
 
-			} 
-			
-			else if (result > priceList[i].prices[2]) {
+			}
+			if (result > priceList[i].prices[2]) {
 				var temp = result % priceList[i].prices[1]
 
 				var temp2 = (result - temp) / priceList[i].prices[1]
@@ -53,13 +47,13 @@ module.exports = {
 				remaining = priceList[i].prices[1] - temp2
 
 				box1 = temp2
-			} 
-			
-			else if (remaining <= priceList[i].prices[1]) {
+			}
+
+			if (remaining <= priceList[i].prices[1]) {
 				bottle1 += remaining
-			} 
-			
-			else if (remaining > priceList[i].prices[2]) {
+			}
+
+			if (remaining > priceList[i].prices[2]) {
 				pack1 += remaining
 			}
 
